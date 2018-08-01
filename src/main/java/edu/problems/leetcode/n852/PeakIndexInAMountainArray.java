@@ -28,4 +28,61 @@ Note:
     A is a mountain, as defined above.
  */
 public class PeakIndexInAMountainArray {
+
+    public static void main(String[] args) {
+        System.out.println(new PeakIndexInAMountainArray().peakIndexInMountainArray(new int[]{0,2,1,0}));
+    }
+
+    private int peakIndexInMountainArray(int[] ints) {
+        int low = 0;
+        int hi = ints[ints.length-1];
+
+        return 0;
+    }
+
 }
+
+//    ||
+//    ||
+//   \  /
+//    \/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    public int peakIndexInMountainArray(int[] A) {
+//        int lo = 0;
+//        int hi = A.length - 1;
+//
+//        while (lo < hi){
+//            int mid = (lo + hi) / 2;
+//            if (A[mid] > A[mid + 1]){
+//                hi = mid;
+//            } else {
+//                lo = mid + 1;
+//            }
+//        }
+//        return lo;
+//    }
+
