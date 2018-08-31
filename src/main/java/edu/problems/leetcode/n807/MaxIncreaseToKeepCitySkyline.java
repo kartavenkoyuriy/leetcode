@@ -57,9 +57,9 @@ public class MaxIncreaseToKeepCitySkyline {
     }
 
     public int maxIncreaseKeepingSkyline(int[][] grid) {
-        int count = 0;
         int[] bottomView = getBottomView(grid);
         int[] leftSideView = getLeftSideView(grid);
+        int count = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
                 int minFromSides = Math.min(bottomView[j], leftSideView[i]);
