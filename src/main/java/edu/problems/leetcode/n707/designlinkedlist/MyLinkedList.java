@@ -15,6 +15,8 @@ public class MyLinkedList {
     private Node tail;
     private int listLength;
 
+    //TODO 3 implement toString for debugging
+
     /**
      * Initialize your data structure here.
      */
