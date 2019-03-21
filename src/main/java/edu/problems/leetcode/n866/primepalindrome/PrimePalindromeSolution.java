@@ -99,7 +99,6 @@ public class PrimePalindromeSolution {
         if(numberToTest < 0){
             return false;
         }
-        //2*10^8
         List<Integer> numbersList = new ArrayList<>();
         int updatedNumber = numberToTest;
         while (updatedNumber != 0){
