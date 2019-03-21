@@ -46,12 +46,16 @@ public class PrimePalindromeSolution {
 
     //TODO 1 optimize check
     public boolean isPrime(int numberToTest) {
-        if (numberToTest == 1){
+        if (numberToTest == 1) {
             return false;
         }
-        final int sqrt = (int)Math.ceil(Math.sqrt(numberToTest));
+        if (numberToTest == 2
+                || numberToTest == 3) {
+            return true;
+        }
+        final int sqrt = (int) Math.ceil(Math.sqrt(numberToTest));
         for (int i = 2; i <= sqrt; i++) {
-            if(numberToTest % i == 0){
+            if (numberToTest % i == 0) {
                 return false;
             }
         }
@@ -60,9 +64,9 @@ public class PrimePalindromeSolution {
     }
 
     public boolean isPrimeNew(int numberToTest) {
-        if (numberToTest <= 3){
+        if (numberToTest <= 3) {
             return numberToTest > 1;
-        } else if (numberToTest % 2 == 0 || numberToTest % 3 == 0){
+        } else if (numberToTest % 2 == 0 || numberToTest % 3 == 0) {
             return false;
         } else {
 //            final int sqrt = (int)Math.ceil(Math.sqrt(numberToTest));
@@ -71,9 +75,11 @@ public class PrimePalindromeSolution {
 //                    return false;
 //                }
 //            }
-            for (int i = 5; i * i <= numberToTest; i = i + 6)
-                if (numberToTest % i == 0 || numberToTest % (i + 2) == 0)
+            for (int i = 5; i * i <= numberToTest; i = i + 6) {
+                if (numberToTest % i == 0 || numberToTest % (i + 2) == 0) {
                     return false;
+                }
+            }
 
             return true;
         }
@@ -95,32 +101,29 @@ public class PrimePalindromeSolution {
 
 
     //TODO 2 replace list with array?
-    public boolean isPalindrome(int numberToTest) {
-        if(numberToTest < 0){
+    public boolean isPalindrome(int x) {
+        if (x < 0 || (x % 10 == 0 && x != 0)) {
             return false;
         }
-        List<Integer> numbersList = new ArrayList<>();
-        int updatedNumber = numberToTest;
-        while (updatedNumber != 0){
-            numbersList.add(updatedNumber % 10);
-            updatedNumber /= 10;
+
+        int reversed = 0;
+        while (x > reversed) {
+            reversed = reversed * 10 + x % 10;
+            x /= 10;
         }
 
-        for (int i = 0; i < numbersList.size() / 2; i++) {
-            if (!numbersList.get(i).equals(numbersList.get(numbersList.size() - 1 - i))){
-                return false;
-            }
-        }
-
-        return true;
+        return x == reversed || x == reversed / 10;
     }
 
     public static void main(String[] args) {
         PrimePalindromeSolution test = new PrimePalindromeSolution();
 //        test.isPalindrome(123321);
 //        System.out.println(test.getNextPrimePalindrome(77));
-        System.out.println(test.getNextPrimePalindrome(9989900));
+//        System.out.println(test.getNextPrimePalindrome(9989900));
 //        System.out.println(test.getNextPrimePalindrome(6));
+//        System.out.println(test.getNextPrimePalindrome(8));
+//        System.out.println(test.getNextPrimePalindrome(1));
+        System.out.println(test.getNextPrimePalindrome(45887963));
     }
 
 }
