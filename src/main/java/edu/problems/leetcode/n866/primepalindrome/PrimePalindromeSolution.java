@@ -28,6 +28,8 @@ Note:
     1 <= N <= 10^8
     The answer is guaranteed to exist and be less than 2 * 10^8.
  */
+
+//contains from task 9 and
 public class PrimePalindromeSolution {
 
     public int primePalindrome(int N) {
