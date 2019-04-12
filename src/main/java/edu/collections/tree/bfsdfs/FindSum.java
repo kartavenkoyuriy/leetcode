@@ -19,6 +19,16 @@ class Node{
 public class FindSum {
 
     Node root = initialize();
+    Node simpleRoot = initializeSimple();
+
+    private Node initializeSimple() {
+        Node rootTwo = new Node(2);
+        Node one = new Node(1);
+        Node three = new Node(3);
+        rootTwo.left = one;
+        rootTwo.right = three;
+        return rootTwo;
+    }
 
     Node initialize(){
         Node rootSix = new Node(6);
@@ -44,7 +54,10 @@ public class FindSum {
 
     public static void main(String[] args) {
         FindSum test = new FindSum();
+        System.out.println(test.findSumBfs(test.simpleRoot));
+        System.out.println(test.findSumDfsSimple(test.simpleRoot));
         System.out.println(test.findSumBfs(test.root));
+        System.out.println(test.findSumDfsSimple(test.root));
     }
 
     int findSumBfs(Node node){
@@ -61,7 +74,11 @@ public class FindSum {
                 q.add(tempNode.right);
             }
         }
-
         return sum;
+    }
+
+    private int findSumDfsSimple(Node node) {
+        if (node == null) return 0;
+        return node.val + findSumDfsSimple(node.left) + findSumDfsSimple(node.right);
     }
 }
