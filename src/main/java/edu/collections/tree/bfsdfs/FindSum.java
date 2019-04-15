@@ -3,7 +3,8 @@ package edu.collections.tree.bfsdfs;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-class Node{
+class Node {
+
     public int val;
     public Node left;
     public Node right;
@@ -30,7 +31,7 @@ public class FindSum {
         return rootTwo;
     }
 
-    Node initialize(){
+    Node initialize() {
         Node rootSix = new Node(6);
         Node one = new Node(1);
         Node two = new Node(2);
@@ -58,27 +59,48 @@ public class FindSum {
         System.out.println(test.findSumDfsSimple(test.simpleRoot));
         System.out.println(test.findSumBfs(test.root));
         System.out.println(test.findSumDfsSimple(test.root));
+        System.out.println("---");
+        System.out.println(test.findSumDfs(test.simpleRoot));
+        System.out.println(test.findSumDfs(test.root));
     }
 
-    int findSumBfs(Node node){
+    int findSumBfs(Node node) {
         Queue<Node> q = new ArrayDeque<>();
         q.add(node);
         int sum = 0;
-        while(q.size() > 0){
+        while (q.size() > 0) {
             Node tempNode = q.poll();
             sum += tempNode.val;
-            if (tempNode.left != null){
+            if (tempNode.left != null) {
                 q.add(tempNode.left);
             }
-            if (tempNode.right != null){
+            if (tempNode.right != null) {
                 q.add(tempNode.right);
             }
         }
         return sum;
     }
 
+    //---start extended(dumber) solution
+    private int findSumDfs(Node node) {
+        return findSumDfs(node, 0);
+    }
+
+    private int findSumDfs(Node node, int sum) {
+        if (node == null) {
+            return 0;
+        }
+
+        int sumAll = node.val;
+        sumAll += findSumDfs(node.left, sum);
+        return sumAll + findSumDfs(node.right, sum);
+    }
+    //---end extended(dumber) solution
+
     private int findSumDfsSimple(Node node) {
-        if (node == null) return 0;
+        if (node == null) {
+            return 0;
+        }
         return node.val + findSumDfsSimple(node.left) + findSumDfsSimple(node.right);
     }
 }

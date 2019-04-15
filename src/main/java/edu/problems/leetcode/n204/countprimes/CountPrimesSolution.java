@@ -31,7 +31,8 @@ public class CountPrimesSolution {
     }
 
     private boolean isPrime(int number) {
-        for (int i = 2; i < number / 2 + 1; i++) {
+        int upgradedBorder = number / 2 + 1;//handle "4" case, for pass 4 into the loop
+        for (int i = 2; i < upgradedBorder; i++) {
             if (number % i == 0) {
                 return false;
             }
