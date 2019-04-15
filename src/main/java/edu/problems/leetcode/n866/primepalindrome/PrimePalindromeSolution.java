@@ -29,7 +29,7 @@ Note:
     The answer is guaranteed to exist and be less than 2 * 10^8.
  */
 
-//contains from task 9 and
+//contains from task 9 and 204
 public class PrimePalindromeSolution {
 
     public int primePalindrome(int N) {

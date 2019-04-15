@@ -11,40 +11,40 @@ Example:
 Input: 10
 Output: 4
 Explanation: There are 4 prime numbers less than 10, they are 2, 3, 5, 7.
+ */
 
-
+/*
+steps:
+1. N^2 by iterating on all numbers up to n(O(N)); for each isPrime(O(N)) - not modulo by any except n and 1
+2. we can count only to half(n / 2), because each next will be n * 2, which is not prime
  */
 public class CountPrimesSolution {
 
     public int countPrimes(int n) {
-        List<Integer> list = new ArrayList<>();
         int count = 0;
-        OUTER:
         for (int i = 2; i < n; i++) {
-            for (int j = 0; j < list.size(); j++) {
-                if (i % list.get(j) == 0){
-                    continue OUTER;
-                }
+            if (isPrime(i)) {
+                count++;
             }
-            int divider = i - 1;
-            while (divider != 1) {
-                if (i % divider == 0) {
-                    continue OUTER;
-                }
-                divider--;
-            }
-            count++;
-            list.add(i);
         }
         return count;
+    }
+
+    private boolean isPrime(int number) {
+        for (int i = 2; i < number / 2 + 1; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {
         CountPrimesSolution test = new CountPrimesSolution();
         test.timing(0, 0, test);
         test.timing(0, 1, test);
-        test.timing(0, 2, test);//!
-        test.timing(1, 3, test);//!
+        test.timing(0, 2, test);
+        test.timing(1, 3, test);
         test.timing(2, 4, test);
         test.timing(2, 5, test);
         test.timing(3, 6, test);
@@ -68,27 +68,27 @@ public class CountPrimesSolution {
         System.out.println(expectedResult + ":" + test.countPrimes(value) + "|" + (System.currentTimeMillis() - start));
     }
 
-//    public int countPrimesOld(int n) {
-//        if (n < 0) {
-//            return 0;
-//        }
-//        //2,3
-//        int count = 3;
-//        OUTER:
-//        for (int i = 7; i < n; i++) {
-//            if(i % 2 == 0 || i % 3 == 0 || i % 5 == 0){
-//                continue;
-//            }
-//            int divider = i - 1;
-//            while (divider != 1) {
-//                if (i % divider == 0) {
-//                    continue OUTER;
-//                }
-//                divider--;
-//            }
-//            count++;
-//        }
-//        return count;
-//    }
+    public int countPrimes_bestAsForNow(int n) {
+        List<Integer> list = new ArrayList<>();
+        int count = 0;
+        OUTER:
+        for (int i = 2; i < n; i++) {
+            for (int j = 0; j < list.size(); j++) {
+                if (i % list.get(j) == 0) {
+                    continue OUTER;
+                }
+            }
+            int divider = i - 1;
+            while (divider != 1) {
+                if (i % divider == 0) {
+                    continue OUTER;
+                }
+                divider--;
+            }
+            count++;
+            list.add(i);
+        }
+        return count;
+    }
 
 }
