@@ -17,14 +17,11 @@ public class ReverseLinkedList {
 
     public static void main(String[] args) {
         ListNode five = populateListFive();
-        printList(reverseListRec(five));
+        printList(reverseListIter(five));
     }
 
     public static ListNode reverseListRec(ListNode head) {
-        if(head == null){
-            return null;
-        }
-        if(head.next == null){
+        if(head == null || head.next == null){
             return head;
         }
 
@@ -35,22 +32,15 @@ public class ReverseLinkedList {
     }
 
     public static ListNode reverseListIter(ListNode head) {
-        if(head == null){
-            return null;
+        ListNode prev = null;
+        ListNode curr = head;
+        while (curr != null){
+            ListNode tempNext = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = tempNext;
         }
-        ListNode currentNode = head;
-        ListNode nextNode = head.next;
-        currentNode.next = null;
-        while(true){
-            if(nextNode == null){
-                break;
-            }
-            ListNode nextNextNode = nextNode.next;
-            nextNode.next = currentNode;
-            currentNode = nextNode;
-            nextNode = nextNextNode;
-        }
-        return currentNode;
+        return prev;
     }
 
     private static void printList(ListNode head) {
