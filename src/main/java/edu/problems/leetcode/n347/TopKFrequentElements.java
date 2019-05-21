@@ -31,6 +31,7 @@ public class TopKFrequentElements {
 //        final int[] int01 = {1, 1, 1, 2, 2, 3};
 //        final int[] int02 = {1, 2, 1, 3, 1, 3, 4};
         final int[] int03 = {1, 2};
+        final int[] int04 = {4,1,-1,2,-1,2,3};
 //        System.out.println(topKFrequentTree(int01, 2));
 //        System.out.println(topKFrequentTree(int02, 2));
         System.out.println(topKFrequentTree(int03, 2));
@@ -85,7 +86,11 @@ public class TopKFrequentElements {
             }
             nta.put(n, a);
             if (atn.size() < k){
-                atn.put(0-a, n);
+                int tempNum = a;
+                while(atn.get(tempNum) != null){
+                    tempNum--;
+                }
+                atn.put(tempNum, n);
             } else {
                 if(atn.firstKey() <= a){
                     atn.remove(atn.firstKey());
