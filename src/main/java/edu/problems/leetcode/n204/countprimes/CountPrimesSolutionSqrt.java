@@ -11,7 +11,7 @@ Let's write down all of 12's factors:
 As you can see, calculations of 4 × 3 and 6 × 2 are not necessary.
 Therefore, we only need to consider factors up to √n because, if n is divisible by some number p, then n = p × q and since p ≤ q, we could derive that p ≤ √n.
  */
-public class CountPrimesSolutionSqrt {
+public class CountPrimesSolutionSqrt extends CountPrimesSolutionBasic {
     private boolean isPrime(int number) {
         //edge cases here
         if(number <= 1){

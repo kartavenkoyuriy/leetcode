@@ -46,7 +46,7 @@ public class CountPrimesSolutionBasic {
     }
 
     public static void main(String[] args) {
-        CountPrimesSolutionBasic test = new CountPrimesSolutionBasic();
+        CountPrimesSolutionBasic test = new CountPrimesSolutionEratosthenes();
         test.timing(0, 0, test);
         test.timing(0, 1, test);
         test.timing(0, 2, test);
@@ -65,11 +65,11 @@ public class CountPrimesSolutionBasic {
         test.timing(9592, 100_000, test);//1:11769; 2:7857; 3:5222; 4:3683; 5:3046; 6v2:1373; sqrt-15;
         test.timing(78498, 1_000_000, test);//1:***; 2:***; 3:***; 4:***; 5:298466; 6v2:101805; sqrt-242;
         test.timing(664579, 10_000_000, test);//6v2:8089740; sqrt-5261;
-        test.timing(5761455, 100_000_000, test);//sqrt-135046;
-        test.timing(50847534, 1_000_000_000, test);
+        test.timing(5761455, 100_000_000, test);//sqrt-135046; era-1447
+        test.timing(50847534, 1_000_000_000, test);//era-13774
     }
 
-    private void timing(int expectedResult, int value, CountPrimesSolutionBasic test) {
+    void timing(int expectedResult, int value, CountPrimesSolutionBasic test) {
         final long start = System.currentTimeMillis();
         System.out.println(expectedResult + ":" + test.countPrimes(value) + "|" + (System.currentTimeMillis() - start));
     }
