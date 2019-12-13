@@ -28,21 +28,34 @@ public class BestTimeToBuy {
 //        System.out.println(b.maxProfit(p1));
     }
 
+    //Kadane's algorithm
     public int maxProfit(int[] prices) {
-        if (prices == null || prices.length < 2) return 0; // or throw IAE
-
-        int minI = 0;
-        int profit = 0;
-        for (int i = 1; i < prices.length; i++) {
-            if (prices[i] < prices[minI]){
-                minI = i;
-            }
-            if (prices[i] - prices[minI] > profit){
-                profit = prices[i] - prices[minI];
-            }
+        int maxCur = 0, maxSoFar = 0;
+        for(int i = 1; i < prices.length; i++) {
+            //By reseting maxCur to 0, essentially it means that we have found a point i where the price[i] is lower than the time we bought,
+            //and that we should then try to buy at point i to see if we can achieve a bigger gain.
+            //Because maxCur is recording the difference, the difference between price[i] and itself should be 0.
+            maxCur = Math.max(0, maxCur + prices[i] - prices[i-1]);
+            maxSoFar = Math.max(maxCur, maxSoFar);
         }
-        return profit;
+        return maxSoFar;
     }
+
+//    public int maxProfit(int[] prices) {
+//        if (prices == null || prices.length < 2) return 0; // or throw IAE
+//
+//        int minI = 0;
+//        int profit = 0;
+//        for (int i = 1; i < prices.length; i++) {
+//            if (prices[i] < prices[minI]){
+//                minI = i;
+//            }
+//            if (prices[i] - prices[minI] > profit){
+//                profit = prices[i] - prices[minI];
+//            }
+//        }
+//        return profit;
+//    }
 
 //    public int maxProfit(int[] prices) {
 //        if (prices == null || prices.length < 2) return 0; //or throw IAE
