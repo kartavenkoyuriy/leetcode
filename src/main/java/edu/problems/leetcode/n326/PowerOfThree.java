@@ -17,12 +17,17 @@ public class PowerOfThree {
 //        }
     }
 
+    char getOpenFor(char c){
+        if (c == ']') return '[';
+        throw new IllegalArgumentException();
+    }
+
     //max pow of 3 (that less than Integer.MAX_VALUE) is 1162261467. when 1162261467 divide on "every pow of 3" the result will be 0. check.
     public static boolean isPowerOfThree(int n) {
         return n > 0 && 1162261467 % n == 0;
     }
 
-        //???
+    //???
     //n is a power of three if and only if i is an integer. In Java, we check if a number is an integer by taking the decimal part (using % 1) and checking if it is 0.
     //???
 //    public static boolean isPowerOfThree(int n) {
