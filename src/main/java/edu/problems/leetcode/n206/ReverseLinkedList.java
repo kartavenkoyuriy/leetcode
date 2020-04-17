@@ -51,7 +51,7 @@ public class ReverseLinkedList {
         return prev;
     }
 
-    private static void printList(ListNode head) {
+    public static void printList(ListNode head) {
         System.out.print(head);
         ListNode iter = head;
         while (iter.next != null){
@@ -61,7 +61,7 @@ public class ReverseLinkedList {
         }
     }
 
-    private static ListNode populateListFive() {
+    public static ListNode populateListFive() {
         ListNode one = new ListNode(1);
         ListNode two = new ListNode(2);
         ListNode three = new ListNode(3);
