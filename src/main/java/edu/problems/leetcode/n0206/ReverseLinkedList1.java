@@ -1,7 +1,10 @@
 package edu.problems.leetcode.n0206;
 
-import static edu.problems.leetcode.n0206.ReverseLinkedList.populateListFive;
-import static edu.problems.leetcode.n0206.ReverseLinkedList.printList;
+
+import edu.problems.leetcode._collections.ListNode;
+
+import static edu.problems.leetcode._collections.ListNode.populateListFive;
+import static edu.problems.leetcode._collections.ListNode.printList;
 
 public class ReverseLinkedList1 {
 
