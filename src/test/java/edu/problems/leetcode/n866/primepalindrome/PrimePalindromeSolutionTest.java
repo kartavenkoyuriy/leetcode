@@ -7,7 +7,6 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class PrimePalindromeSolutionTest {
@@ -16,6 +15,7 @@ public class PrimePalindromeSolutionTest {
     private static List<Integer> simpleNotPrimeNumbers = new ArrayList<>();
     private static List<Integer> simplePalindromeNumbers = new ArrayList<>();
     private static List<Integer> simpleNotPalindromeNumbers = new ArrayList<>();
+    private static List<Integer> simplePrimePalindromeNumbers = new ArrayList<>();
     private PrimePalindromeSolution test = new PrimePalindromeSolution();
 
 
@@ -25,14 +25,7 @@ public class PrimePalindromeSolutionTest {
         populateSimpleNotPrimeList();
         populateSimplePalindromeList();
         populateSimpleNotPalindromeList();
-    }
-
-    @Test
-    @Ignore
-    public void getNextPrimePalindromeShouldReturnTrueOnSimplePalindrome(){
-        for (Integer simplePalindromeNumber : simplePalindromeNumbers) {
-            assertEquals(test.getNextPrimePalindrome(simplePalindromeNumber), (int) simplePalindromeNumber);
-        }
+        populateSimplePrimePalindromeList();
     }
 
     @Test
@@ -99,9 +92,18 @@ public class PrimePalindromeSolutionTest {
     private static void populateSimpleNotPalindromeList() {
         simpleNotPalindromeNumbers.add(12);
         simpleNotPalindromeNumbers.add(29);
+        simpleNotPalindromeNumbers.add(30);
         simpleNotPalindromeNumbers.add(123);
         simpleNotPalindromeNumbers.add(321);
         simpleNotPalindromeNumbers.add(10_000);
     }
+
+    private static void populateSimplePrimePalindromeList() {
+        simplePrimePalindromeNumbers.add(11);
+        simplePrimePalindromeNumbers.add(131);
+
+    }
+
+
 
 }

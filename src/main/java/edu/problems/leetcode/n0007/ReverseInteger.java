@@ -32,22 +32,15 @@ public class ReverseInteger {
     }
 
     public int reverse(int x) {
-//        boolean isNegative = Integer.signum(x) == -1;
         int reversed = 0;
 
-
-
         while (x != 0){
-            if (reversed > Integer.MAX_VALUE / 10 || reversed < Integer.MIN_VALUE / 10){
+            if (((reversed * 10 + x % 10) - x % 10) / 10 != reversed){
                 return 0;
             }
             reversed = reversed * 10 + x % 10;
             x /= 10;
         }
-
-//        if (isNegative){
-//            reversed = -reversed;
-//        }
 
         return reversed;
     }

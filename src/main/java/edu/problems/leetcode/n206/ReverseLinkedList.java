@@ -1,15 +1,9 @@
 package edu.problems.leetcode.n206;
 
-class ListNode {
-     int val;
-     ListNode next;
-     ListNode(int x) { val = x; }
+import edu.problems.leetcode._collections.ListNode;
 
-    @Override
-    public String toString() {
-        return Integer.toString(val);
-    }
-}
+import static edu.problems.leetcode._collections.ListNode.populateListFive;
+import static edu.problems.leetcode._collections.ListNode.printList;
 
 public class ReverseLinkedList {
 
@@ -49,29 +43,5 @@ public class ReverseLinkedList {
             curr = tempNext;
         }
         return prev;
-    }
-
-    public static void printList(ListNode head) {
-        System.out.print(head);
-        ListNode iter = head;
-        while (iter.next != null){
-            System.out.print("->");
-            System.out.print(iter.next);
-            iter = iter.next;
-        }
-    }
-
-    public static ListNode populateListFive() {
-        ListNode one = new ListNode(1);
-        ListNode two = new ListNode(2);
-        ListNode three = new ListNode(3);
-        ListNode four = new ListNode(4);
-        ListNode five = new ListNode(5);
-        one.next = two;
-        two.next = three;
-        three.next = four;
-        four.next = five;
-
-        return one;
     }
 }
