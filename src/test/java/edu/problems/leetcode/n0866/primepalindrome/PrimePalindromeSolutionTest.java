@@ -1,4 +1,4 @@
-package edu.problems.leetcode.n866.primepalindrome;
+package edu.problems.leetcode.n0866.primepalindrome;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

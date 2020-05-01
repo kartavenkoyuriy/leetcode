@@ -34,7 +34,7 @@ public class ListNode {
         return one;
     }
 
-    public static ListNode populateListSeven() {
+    public static ListNode populatePalindromeListSeven() {
         ListNode one = new ListNode(1);
         ListNode two = new ListNode(3);
         ListNode three = new ListNode(2);
@@ -52,7 +52,7 @@ public class ListNode {
         return one;
     }
 
-    public static ListNode populateListSix() {
+    public static ListNode populatePalindromeListSix() {
         ListNode one = new ListNode(1);
         ListNode two = new ListNode(4);
         ListNode three = new ListNode(-1);

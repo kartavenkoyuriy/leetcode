@@ -1,4 +1,4 @@
-package edu.problems.leetcode.n977.squaresofasortedarray;
+package edu.problems.leetcode.n0977.squaresofasortedarray;
 
 import java.util.Arrays;
 

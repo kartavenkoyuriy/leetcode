@@ -1,8 +1,4 @@
-package edu.problems.leetcode.n866.primepalindrome;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+package edu.problems.leetcode.n0866.primepalindrome;
 
 /*
 Find the smallest prime palindrome greater than or equal to N.

@@ -1,4 +1,4 @@
-package edu.problems.leetcode.n942.distringmatch;
+package edu.problems.leetcode.n0942.distringmatch;
 
 public class DIStringMatchSolution {
     public int[] diStringMatch(String S) {
