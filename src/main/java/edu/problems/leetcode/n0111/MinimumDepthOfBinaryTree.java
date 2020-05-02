@@ -1,5 +1,7 @@
 package edu.problems.leetcode.n0111;
 
+import edu.problems.leetcode._collections.TreeNode;
+
 public class MinimumDepthOfBinaryTree {
     public int minDepth(TreeNode root) {
         if (root == null) {
@@ -19,15 +21,5 @@ public class MinimumDepthOfBinaryTree {
 //        }
 //        return 1 + Math.min(minLeft, minRight);
         return (minLeft == 0 || minRight == 0) ? minLeft + minRight + 1: Math.min(minLeft,minRight) + 1;
-    }
-
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
     }
 }
