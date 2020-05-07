@@ -27,7 +27,7 @@ Follow up: Solve it both recursively and iteratively.
 public class SymmetricTree {
 
     //iterative
-    public boolean isSymmetric(TreeNode root) {
+    public boolean isSymmetricIter(TreeNode root) {
         if (root == null) return true; //why?
         if (root.left == null) return root.right == null;
         if (root.right == null) return root.left == null;
@@ -50,5 +50,9 @@ public class SymmetricTree {
             rightDek.addLast(rp.right);
         }
         return true;
+    }
+
+    public boolean isSymmetricRec(TreeNode root) {
+        return false;
     }
 }
